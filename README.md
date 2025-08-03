@@ -6,7 +6,7 @@
     <img width="200" alt="image" src="https://github.com/user-attachments/assets/fad90f0c-8dce-4ee3-867b-b76f771215a8">
 </h1>
 
-<img width="1710" alt="image" src="Screenshots/ss1.png" />
+<img width="1710" alt="image" src="Screenshots/SS1.png" />
 
 ## Setup
 
@@ -30,4 +30,4 @@
 - kitty (terminal)
 - neovim (editor)
 
-![Screenshot](Screenshots/ss2.png)
+![Screenshot](Screenshots/SS2.png)
