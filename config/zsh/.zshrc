@@ -1,104 +1,105 @@
 # ============================================================================
-# SHELL INITIALIZATION
+# SHELL INITIALIZATION - OPTIMIZED FOR SPEED
 # ============================================================================
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# Skip all processing for non-interactive shells
+[[ $- != *i* ]] && return
 
 # ============================================================================
 # OH-MY-ZSH CONFIGURATION
 # ============================================================================
 
-# Path to your oh-my-zsh installation
-export ZSH="$HOME/.oh-my-zsh"
+# Note: Oh-My-Zsh is already loaded by Home Manager in the main .zshrc
+# The following configuration is commented out to avoid duplicate loading
+# which was causing significant startup delays
 
 # Oh-My-Zsh theme configuration
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="powerlevel10k/powerlevel10k"
+# Using Starship prompt instead of Powerlevel10k for better performance
+# ZSH_THEME is managed by Home Manager configuration
 
-# Oh-My-Zsh update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-# zstyle ':omz:update' frequency 13
+# Oh-My-Zsh plugins are managed by Home Manager
+# Current plugins configured in home.nix: git, kitty
 
-# Oh-My-Zsh plugins are now managed by Home Manager
-# The following plugins are configured in home.nix:
-# - git
-# - kitty
+# Oh-My-Zsh is already loaded by Home Manager - no need to source again
 
-# Load Oh-My-Zsh (path managed by Home Manager)
-if [[ -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]]; then
-  source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
-fi
-
-# Clean up any broken completion symlinks on startup
-if [[ -d "/opt/homebrew/share/zsh/site-functions" ]]; then
-  find /opt/homebrew/share/zsh/site-functions -type l ! -exec test -e {} \; -delete 2>/dev/null
-fi
+# Clean up any broken completion symlinks on startup (run weekly only)
+# Moved to a separate function to avoid running on every shell startup
+cleanup_broken_symlinks() {
+  if [[ -d "/opt/homebrew/share/zsh/site-functions" ]]; then
+    find /opt/homebrew/share/zsh/site-functions -type l ! -exec test -e {} \; -delete 2>/dev/null
+  fi
+  # Also clean up old brew completions that might be broken
+  if [[ -d "/usr/local/share/zsh/site-functions" ]]; then
+    find /usr/local/share/zsh/site-functions -type l ! -exec test -e {} \; -delete 2>/dev/null
+  fi
+}
 
 # ============================================================================
 # PATH CONFIGURATION
 # ============================================================================
 
-# pnpm configuration
+# PATH configuration - optimized to extend Home Manager's existing PATH
 export PNPM_HOME="/Users/Ari/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
-# bun configuration
 export BUN_INSTALL="$HOME/.bun"
-
-# PATH exports
-export PATH="/Users/Ari/lavat:$PATH"
-export PATH="$PATH:/Users/Ari/.spicetify"
-export PATH="$PATH:/Users/Ari/.local/bin/lvim"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$BUN_INSTALL/bin:$PATH"
-export PATH="$PATH:/Users/Ari/.lmstudio/bin"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
+
+# Extend PATH with additional tools (Home Manager already handles some paths)
+# Using typeset -U to ensure unique entries and avoid duplicates
+typeset -U path
+path=(
+  "/Users/Ari/lavat"
+  "$PNPM_HOME"
+  "$HOME/.local/bin"
+  "$BUN_INSTALL/bin"
+  "/Users/Ari/.spicetify"
+  "/Users/Ari/.local/bin/lvim"
+  "/Users/Ari/.lmstudio/bin"
+  $path  # Preserve existing PATH from Home Manager
+)
 
 # ============================================================================
 # TOOL INITIALIZATION
 # ============================================================================
 
-# Starship prompt
-eval "$(starship init zsh)"
+# Initialize tools - avoiding duplicates and using lazy loading where possible
 
-# Pyenv initialization
-eval "$(pyenv init --path)"
+# Pyenv initialization (only if pyenv exists)
+if command -v pyenv >/dev/null 2>&1; then
+  eval "$(pyenv init --path)"
+fi
 
-# Zoxide initialization
-eval "$(zoxide init zsh)"
-
-# Initialize tools available through Nix
+# Starship prompt (check for both system and nix versions, init once)
 if command -v starship >/dev/null 2>&1; then
   eval "$(starship init zsh)"
 fi
 
+# Zoxide initialization (check for both system and nix versions, init once)  
 if command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init zsh)"
 fi
 
 # Auto-start sketchybar if not running (only in interactive shells)
-if [[ $- == *i* ]] && command -v sketchybar >/dev/null 2>&1 && ! pgrep -x "sketchybar" > /dev/null; then
-  (sketchybar > /dev/null 2>&1 &)
+# Moved to background to not block shell startup
+if [[ $- == *i* ]] && command -v sketchybar >/dev/null 2>&1; then
+  if ! pgrep -x "sketchybar" > /dev/null 2>&1; then
+    (sketchybar > /dev/null 2>&1 &) &!
+  fi
 fi
 
-# Powerlevel10k configuration
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Powerlevel10k configuration removed - using Starship instead
 
-# Bun completions
-[ -s "/Users/Ari/.bun/_bun" ] && source "/Users/Ari/.bun/_bun"
+# Bun completions (lazy load to improve startup time)
+if [ -s "/Users/Ari/.bun/_bun" ]; then
+  # Only load bun completions when actually needed
+  autoload -Uz add-zsh-hook
+  _load_bun_completions() {
+    if command -v bun >/dev/null 2>&1; then
+      source "/Users/Ari/.bun/_bun"
+    fi
+    add-zsh-hook -d precmd _load_bun_completions
+  }
+  add-zsh-hook precmd _load_bun_completions
+fi
 
 # ============================================================================
 # ALIASES
@@ -113,6 +114,10 @@ alias ls="eza --icons"
 alias cd="z"
 alias poke="pokeget --hide-name random"
 alias clean="clear && neofetch && ez"
+
+# Performance and debugging
+alias profile-zsh="time zsh -i -c exit"
+alias cleanup-completions="cleanup_broken_symlinks"
 
 # Home Manager shortcuts
 alias hm="home-manager switch --flake .#Ari"
@@ -129,3 +134,4 @@ alias stop-stuff="pkill yabai; pkill skhd; pkill sketchybar"
 alias start-stuff="(yabai > /dev/null 2>&1 &); (skhd > /dev/null 2>&1 &); (sketchybar > /dev/null 2>&1 &)"
 alias restart-stuff="stop-stuff; sleep 1; start-stuff"
 alias stop-wine="pgrep -f \"wine\" | xargs -I {} kill -9 {}"
+
