@@ -31,14 +31,3 @@
 - neovim (editor)
 
 ![Screenshot](Screenshots/ss2.png)
-
-<<<<<<< HEAD
-=======
-![Screenshot 2](/Screenshots/SS2.png)
-
-![Screenshot 3](/Screenshots/ss3.png)
-
-![Screenshot 4](/Screenshots/ss4.png)
-
-![Screenshot 5](/Screenshots/ss5.png)
->>>>>>> d6840fb40c0dcb6653658b09d46e08633f02b40a
