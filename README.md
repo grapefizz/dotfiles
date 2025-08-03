@@ -1,21 +1,34 @@
-# Dots
+<h1 align="center">
+<img width="150px" src="https://github.com/user-attachments/assets/2bb2ceaf-5dbe-4c00-9a9c-7f95e754acc5" />
+    <br>
+        macOS dotfiles managed with Nix
+    <br>
+    <img width="200" alt="image" src="https://github.com/user-attachments/assets/fad90f0c-8dce-4ee3-867b-b76f771215a8">
+</h1>
 
-- This repository is a collection of all the dotfiles for my macOS rice.
+<img width="1710" alt="image" src="Screenshots/ss1.png" />
 
-> [!TIP]
-> If you encounter any issues or need help please open up an [issue](https://github.com/NotAriRay/dotfiles/issues) here on github
+## Setup
 
-# Details
+1. Install Nix:
+   ```bash
+   curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+   ```
 
-- Text Editor: [Neovim](https://neovim.io)
-- Window Manager: [yabai](https://github.com/koekeishiya/yabai)
-- Hotkey Daemon: [skhd](https://github.com/koekeishiya/skhd)
-- Bar: [SketchyBar](https://github.com/FelixKratz/SketchyBar)
-- Terminal: [kitty](https://github.com/kovidgoyal/kitty)
-- Borders: [JankyBorders](https://github.com/FelixKratz/JankyBorders)
+2. Clone and apply:
+   ```bash
+   git clone https://github.com/NotAriRay/dotfiles.git
+   cd dotfiles
+   nix run home-manager/master -- switch --flake .#Ari
+   ```
 
-# Screenshots
+## Tools
 
-![Screenshot 1](/Screenshots/SS1.png)
+- yabai (window manager)
+- skhd (hotkeys)
+- sketchybar (status bar)
+- kitty (terminal)
+- neovim (editor)
 
-![Screenshot 2](/Screenshots/SS2.png)
+![Screenshot](Screenshots/ss2.png)
+

@@ -5,8 +5,8 @@ options=(
   blacklist="Kando,iPhone Mirroring,Screen Studio, CleanMyMac X"
 	width=7.0
 	hidpi=off
-  active_color=0xffea9a97
-	inactive_color=0xFF44415a
+	active_color="gradient(top_left=0xffc6a0f6,bottom_right=0xff8aadf4)"
+	inactive_color="gradient(top_left=0xff7dc4e4,bottom_right=0xffb7bdf8)"
 )
 
 borders "${options[@]}"

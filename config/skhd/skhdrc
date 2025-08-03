@@ -27,10 +27,10 @@ shift + alt - m : yabai -m window --toggle zoom-fullscreen
 shift + alt - e : yabai -m space --balance
 
 # move window and split
-ctrl + alt - j : yabai -m window --warp south
-ctrl + alt - k : yabai -m window --warp north
-ctrl + alt - h : yabai -m window --warp west
-ctrl + alt - l : yabai -m window --warp east
+shift + alt - j : yabai -m window --warp south
+shift + alt - k : yabai -m window --warp north
+shift + alt - h : yabai -m window --warp west
+shift + alt - l : yabai -m window --warp east
 
 # move window to space #
 shift + alt - 1 : yabai -m window --space 1;
@@ -58,5 +58,8 @@ ctrl + alt - f : yabai -m config layout float
 ctrl + alt - b : yabai -m config layout bsp
 
 # app launching
-shift + fn - k : open -n -a kitty
-shift + fn - f : open -n -a Firefox
+shift + fn - space : open -n -a kitty
+shift + fn - b : open -n -a Firefox
+shift + fn - p : open -n -a 'Prism Launcher'
+shift + fn - s : open -n -a Steam
+shift + fn - c : open -n -a CrossOver

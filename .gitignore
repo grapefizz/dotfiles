@@ -1,3 +1,10 @@
 **/.DS_Store
 .DS_Store
 .DS_Store?
+.vscode
+
+# Zsh cache and temporary files
+.zcompdump*
+.zsh_history
+.zsh_sessions/
+**/.zcompdump*
