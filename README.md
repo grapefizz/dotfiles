@@ -17,7 +17,7 @@
 
 2. Clone and apply:
    ```bash
-   git clone https://github.com/NotAriRay/dotfiles.git
+   git clone https://github.com/grapefizz/dots.git
    cd dotfiles
    nix run home-manager/master -- switch --flake .#Ari
    ```
