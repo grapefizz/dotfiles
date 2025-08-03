@@ -19,7 +19,7 @@
    ```bash
    git clone https://github.com/grapefizz/dots.git
    cd dotfiles
-   nix run home-manager/master -- switch --flake .#Ari
+   darwin-rebuild switch --flake .#Ari-MacBook
    ```
 
 ## Tools

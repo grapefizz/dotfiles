@@ -14,8 +14,6 @@
 # which was causing significant startup delays
 
 # Oh-My-Zsh theme configuration
-# Using Starship prompt instead of Powerlevel10k for better performance
-# ZSH_THEME is managed by Home Manager configuration
 
 # Oh-My-Zsh plugins are managed by Home Manager
 # Current plugins configured in home.nix: git, kitty
