@@ -41,9 +41,6 @@
     rustc
     cargo
     
-    # Editors
-    neovim
-    
     # System monitoring & info
     btop
     htop
