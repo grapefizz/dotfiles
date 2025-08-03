@@ -45,7 +45,6 @@
     btop
     htop
     neofetch
-    fastfetch
     onefetch
     tokei
     
