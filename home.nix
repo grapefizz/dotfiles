@@ -33,6 +33,7 @@
     git
     lunarvim
     gcc
+    neovim
     
     # Programming languages & runtimes
     go
