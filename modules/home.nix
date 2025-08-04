@@ -1,5 +1,11 @@
 { config, pkgs, ... }:
 
+imports = [
+  ./kitty.nix
+  ./cava.nix
+  ./zsh.nix
+];
+
 {
   home.username = "Ari";       # Change this
   home.homeDirectory = "/Users/Ari";  # Change this
@@ -93,7 +99,6 @@
   # Symlink app configs from the repo's config directory into ~/.config
   home.file.".config/zsh".source = ./config/zsh;
   home.file.".config/lvim".source = ./config/lvim;
-  home.file.".config/kitty".source = ./config/kitty;
   home.file.".config/yabai".source = ./config/yabai;
   home.file.".config/skhd".source = ./config/skhd;
   home.file.".config/borders".source = ./config/borders;

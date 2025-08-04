@@ -45,7 +45,7 @@
       AppleShowAllExtensions = true;
       ShowPathbar = true;
       ShowStatusBar = false;
-      FXPreferredViewStyle = "icnv";
+      FXPreferredViewStyle = "Nlsv"; # List view
     };
 
     # Global domain settings

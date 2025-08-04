@@ -283,11 +283,8 @@
       # brew list | awk '{print "      \"" $1 "\""}' | pbcopy
     ];
     casks = [
-      "amethyst"
       "background-music"
-      "cool-retro-term"
       "desktoppr"
-      "dmenu-mac"
       "dotnet-sdk"
       "edex-ui"
       "font-sf-mono"
@@ -300,6 +297,7 @@
       "sf-symbols"
       "stats"
       "zerotier-one"
+      "raycast"
       # brew list --cask | awk '{print "      \"" $1 "\""}' | pbcopy
     ];
   };
