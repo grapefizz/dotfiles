@@ -15,12 +15,20 @@
    curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
    ```
 
-2. Clone and apply:
+2. Clone repo:
    ```bash
    git clone https://github.com/grapefizz/dots.git
    cd dotfiles
-   darwin-rebuild switch --flake .#Ari-MacBook
    ```
+
+3. Apply dots:
+    ```bash
+    darwin-rebuild switch --flake .#Ari-MacBook
+    ```
+    or
+    ```bash
+    sudo nix run nix-darwin -- switch --flake .#Ari-MacBook
+    ```
 
 ## Tools
 
