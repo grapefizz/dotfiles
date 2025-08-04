@@ -27,7 +27,7 @@
       homeConfigurations = {
         "Ari" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./home.nix ];
+          modules = [ ./modules/home.nix ];
         };
       };
 
@@ -37,8 +37,8 @@
           inherit system;
           modules = [
             nix-homebrew.darwinModules.nix-homebrew
-            ./darwin.nix
-            ./homebrew.nix
+            ./modules/darwin.nix
+            ./modules/homebrew.nix
           ];
         };
       };
