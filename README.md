@@ -8,6 +8,9 @@
 
 <img width="1710" alt="image" src="Screenshots/SS1.png" />
 
+> [!WARNING]  
+> Project file structure is horrible as of 04/07/2025, don't bother trying to understand it
+
 ## Setup
 
 1. Install Nix:
