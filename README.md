@@ -23,12 +23,14 @@
 
 3. Apply dots:
     ```bash
-    darwin-rebuild switch --flake .#Ari-MacBook
+    sudo darwin-rebuild switch --flake .#Ari-MacBook
     ```
     or
     ```bash
     sudo nix run nix-darwin -- switch --flake .#Ari-MacBook
     ```
+  > [!IMPORTANT]  
+  > You will need to enter your password ***at least once***.
 
 ## Tools
 
