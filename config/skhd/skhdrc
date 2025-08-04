@@ -49,9 +49,9 @@ ctrl - 4 : index=4; eval "$(yabai -m query --spaces | jq --argjson index "${inde
 ctrl - 5 : index=5; eval "$(yabai -m query --spaces | jq --argjson index "${index}" -r '(.[] | select(.index == $index).windows[0]) as $wid | if $wid then "yabai -m window --focus \"" + ($wid | tostring) + "\"" else "skhd --key \"ctrl - " + (map(select(."is-native-fullscreen" == false)) | index(map(select(.index == $index))) + 1 % 10 | tostring) + "\"" end')"
 
 # stop/start/restart yabai
-ctrl + alt - q : brew services stop yabai
-ctrl + alt - s : brew services start yabai
-ctrl + alt - r : brew services restart yabai
+ctrl + alt - q : pkill yabai
+ctrl + alt - s : yabai > /dev/null 2>&1 &
+ctrl + alt - r : pkill yabai && sleep 1 && yabai > /dev/null 2>&1 &
 
 # change yabai tiling mode
 ctrl + alt - f : yabai -m config layout float

@@ -2,6 +2,8 @@
 .DS_Store
 .DS_Store?
 .vscode
+/config/btop/btop.log
+/config/lvim/typrstats
 
 # Zsh cache and temporary files
 .zcompdump*

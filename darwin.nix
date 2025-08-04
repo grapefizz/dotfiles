@@ -80,13 +80,4 @@
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
   ];
-
-  # Wallpaper cycling service (updated syntax)
-  launchd.user.agents.wallpaper-cycle = {
-    serviceConfig = {
-      ProgramArguments = [ "/Users/Ari/dev/dots/scripts/wallpaper-cycle.sh" ];
-      StartInterval = 21600; # 6 hours in seconds (6 * 60 * 60)
-      RunAtLoad = true;
-    };
-  };
 }
