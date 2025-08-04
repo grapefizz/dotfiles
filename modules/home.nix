@@ -51,8 +51,7 @@
     
     # System monitoring & info
     btop
-    htop
-    neofetch
+    htop    
     onefetch
     tokei
     
@@ -104,6 +103,7 @@
   home.file.".config/borders".source = ./config/borders;
   home.file.".config/btop".source = ./config/btop;
   home.file.".config/starship".source = ./config/starship;
+  home.file.".config/fastfetch".source = ./config/fastfetch;
 
   # macOS Launch Agents for automatic startup
   # Note: Launch agent disabled due to permission issues - using zsh auto-start instead

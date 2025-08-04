@@ -26,10 +26,12 @@
 
 3. Apply dots:
     ```bash
+    home-manager switch --flake .#Ari
     sudo darwin-rebuild switch --flake .#Ari-MacBook
     ```
     or
     ```bash
+    home-manager switch --flake .#Ari
     sudo nix run nix-darwin -- switch --flake .#Ari-MacBook
     ```
   > [!IMPORTANT]  

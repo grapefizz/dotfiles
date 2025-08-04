@@ -280,6 +280,7 @@
       "zimg"
       "zsh-syntax-highlighting"
       "zstd"
+      "fastfetch"
       # brew list | awk '{print "      \"" $1 "\""}' | pbcopy
     ];
     casks = [
