@@ -286,6 +286,7 @@
       "amethyst"
       "background-music"
       "cool-retro-term"
+      "desktoppr"
       "dmenu-mac"
       "dotnet-sdk"
       "edex-ui"
