@@ -23,6 +23,7 @@
       macos_quit_when_last_window_closed = true;
       background_opacity = 0.8;
       background_blur = 64;
+      window_padding_width = 20;
     };
     keybindings = {
       "cmd+1" = "goto_tab 1";
@@ -85,7 +86,7 @@
     '';
   };
   # Optionally, add custom scripts if you want to manage them via Nix as well:
-   home.file.".config/kitty/search.py".source = ./kitty/search.py;
-   home.file.".config/kitty/scroll_mark.py".source = ./kitty/scroll_mark.py;
+  # home.file.".config/kitty/search.py".source = ./kitty/search.py; # Disabled: path does not exist
+  # home.file.".config/kitty/scroll_mark.py".source = ./kitty/scroll_mark.py; # Disabled: path does not exist
   # Add more as needed
 }

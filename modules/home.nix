@@ -1,12 +1,12 @@
 { config, pkgs, ... }:
 
-imports = [
-  ./kitty.nix
-  ./cava.nix
-  ./zsh.nix
-];
-
 {
+  imports = [
+    ./kitty.nix
+    ./zsh.nix
+    ./stylix.nix
+  ];
+
   home.username = "Ari";       # Change this
   home.homeDirectory = "/Users/Ari";  # Change this
   home.stateVersion = "24.05"; # Please read the comment before changing.
@@ -104,7 +104,6 @@ imports = [
   home.file.".config/borders".source = ./config/borders;
   home.file.".config/btop".source = ./config/btop;
   home.file.".config/starship".source = ./config/starship;
-  home.file.".config/cava".source = ./config/cava;
 
   # macOS Launch Agents for automatic startup
   # Note: Launch agent disabled due to permission issues - using zsh auto-start instead

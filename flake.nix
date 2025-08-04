@@ -15,9 +15,11 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+
+    stylix.url = "github:danth/stylix";
   };
 
-  outputs = { nixpkgs, home-manager, darwin, nix-homebrew, ... }:
+  outputs = { nixpkgs, home-manager, darwin, nix-homebrew, stylix, ... }:
     let
       system = "aarch64-darwin"; # change to x86_64-darwin if Intel Mac (have not tested)
       pkgs = nixpkgs.legacyPackages.${system};
@@ -27,7 +29,10 @@
       homeConfigurations = {
         "Ari" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./modules/home.nix ];
+          modules = [
+            stylix.homeModules.stylix
+            ./modules/home.nix
+          ];
         };
       };
 
