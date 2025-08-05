@@ -14,6 +14,7 @@
 
     targets = {
       kitty.enable = false;
+      ghostty.enable = false;
     };
   };
 }

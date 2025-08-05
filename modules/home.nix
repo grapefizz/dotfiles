@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./kitty.nix
     ./zsh.nix
     ./stylix.nix
   ];
@@ -66,7 +65,6 @@
     zoxide
     
     # Terminal utilities
-    kitty
     tmux
     starship
     
@@ -93,9 +91,12 @@
     
     # Git tools
     lazygit
+
+    # Random dependencies
   ];
 
   # Symlink app configs from the repo's config directory into ~/.config
+  home.file.".config/ghostty".source = ./config/ghostty;
   home.file.".config/zsh".source = ./config/zsh;
   home.file.".config/lvim".source = ./config/lvim;
   home.file.".config/yabai".source = ./config/yabai;

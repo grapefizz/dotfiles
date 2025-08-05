@@ -290,7 +290,6 @@
       "edex-ui"
       "font-sf-mono"
       "font-sf-pro"
-      "ghostty"
       "gstreamer-runtime"
       "hashicorp-vagrant"
       "linearmouse"
@@ -299,6 +298,7 @@
       "stats"
       "zerotier-one"
       "raycast"
+      "ghostty"
       # brew list --cask | awk '{print "      \"" $1 "\""}' | pbcopy
     ];
   };
