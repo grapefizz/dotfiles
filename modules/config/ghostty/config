@@ -21,7 +21,9 @@ cursor-text = 24273a
 selection-background = 3a3e53
 selection-foreground = cad3f5
 
-quit-after-last-window-closed = true
+shell-integration = zsh
+shell-integration-features = cursor
+
 cursor-click-to-move = true
 macos-icon = holographic
 
@@ -31,7 +33,13 @@ background-blur-radius = 64
 
 window-theme = ghostty
 macos-titlebar-style = hidden
+macos-window-shadow = false
 window-padding-x = 20
+quit-after-last-window-closed = true
 
 font-size = 17.75
 font-family = "JetbrainsMonoNL Nerd Font Mono"
+
+quick-terminal-position = top
+quick-terminal-animation-duration = 0.2
+keybind = global:ctrl+`=toggle_quick_terminal

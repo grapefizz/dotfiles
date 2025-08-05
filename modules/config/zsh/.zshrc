@@ -84,7 +84,6 @@ if [[ $- == *i* ]] && command -v sketchybar >/dev/null 2>&1; then
   fi
 fi
 
-# Powerlevel10k configuration removed - using Starship instead
 
 # Bun completions (lazy load to improve startup time)
 if [ -s "/Users/Ari/.bun/_bun" ]; then

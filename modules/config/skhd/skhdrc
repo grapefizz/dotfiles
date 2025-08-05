@@ -58,8 +58,8 @@ ctrl + alt - f : yabai -m config layout float
 ctrl + alt - b : yabai -m config layout bsp
 
 # app launching
-shift + fn - space : open -n -a Ghostty
-shift + fn - b : open -n -a Firefox
-shift + fn - p : open -n -a 'Prism Launcher'
-shift + fn - s : open -n -a Steam
-shift + fn - c : open -n -a CrossOver
+shift + fn - space : open -na Ghostty
+shift + fn - b : open -na Firefox
+shift + fn - p : open -na 'Prism Launcher'
+shift + fn - s : open -na Steam
+shift + fn - c : open -na CrossOver
