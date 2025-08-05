@@ -36,6 +36,7 @@ macos-titlebar-style = hidden
 macos-window-shadow = false
 window-padding-x = 20
 quit-after-last-window-closed = true
+mouse-hide-while-typing = true
 
 font-size = 17.75
 font-family = "JetbrainsMonoNL Nerd Font Mono"
