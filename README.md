@@ -6,7 +6,7 @@
     <img width="200" alt="image" src="https://github.com/user-attachments/assets/fad90f0c-8dce-4ee3-867b-b76f771215a8">
 </h1>
 
-<img width="1710" alt="image" src="Screenshots/SS1.png" />
+<img width="1710" alt="image" src="screenshots/1.png" />
 
 > [!WARNING]  
 > Project file structure is horrible as of 04/07/2025, don't bother trying to understand it
@@ -42,7 +42,8 @@
 - yabai (window manager)
 - skhd (hotkeys)
 - sketchybar (status bar)
-- kitty (terminal)
+- ghostty (terminal)
 - neovim (editor)
 
-![Screenshot](Screenshots/SS2.png)
+![Screenshot](screenshots/2.png)
+![Screenshot](screenshots/3.png)

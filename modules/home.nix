@@ -93,6 +93,7 @@
     lazygit
 
     # Random dependencies
+    pulseaudio
   ];
 
   # Symlink app configs from the repo's config directory into ~/.config
