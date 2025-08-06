@@ -46,7 +46,7 @@
     nodejs
     rustc
     cargo
-    zig
+    zig 
     
     # System monitoring & info
     btop

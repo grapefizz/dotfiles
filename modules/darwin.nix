@@ -26,6 +26,9 @@
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+# It'll be fine trust me
+  nixpkgs.config.allowUnsupportedSystem = true;
+
   # Set primary user (required for user-specific settings)
   system.primaryUser = "Ari";
 
