@@ -133,21 +133,8 @@
   home.file.".config/btop".source = ../config/btop;
   home.file.".config/starship".source = ../config/starship;
   home.file.".config/fastfetch".source = ../config/fastfetch;
+  home.file.".config/sketchybar".source = ../config/sketchybar;
+  home.file.".config/wallpapers".source = ../config/wallpapers;
 
-  # macOS Launch Agents for automatic startup
-  # Note: Launch agent disabled due to permission issues - using zsh auto-start instead
-  # launchd.agents = {
-  #   sketchybar = {
-  #     enable = true;
-  #     config = {
-  #       ProgramArguments = [ "${pkgs.sketchybar}/bin/sketchybar" ];
-  #       KeepAlive = true;
-  #       RunAtLoad = true;
-  #       StandardOutPath = "/tmp/sketchybar.log";
-  #       StandardErrorPath = "/tmp/sketchybar.error.log";
-  #       ProcessType = "Interactive";
-  #     };
-  #   };
-  # };
 }
 
