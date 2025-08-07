@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./zsh.nix
     ./stylix.nix
   ];
 
@@ -125,15 +124,15 @@
   ];
 
   # Symlink app configs from the repo's config directory into ~/.config
-  home.file.".config/ghostty".source = ./config/ghostty;
-  home.file.".config/zsh".source = ./config/zsh;
-  home.file.".config/lvim".source = ./config/lvim;
-  home.file.".config/yabai".source = ./config/yabai;
-  home.file.".config/skhd".source = ./config/skhd;
-  home.file.".config/borders".source = ./config/borders;
-  home.file.".config/btop".source = ./config/btop;
-  home.file.".config/starship".source = ./config/starship;
-  home.file.".config/fastfetch".source = ./config/fastfetch;
+  home.file.".config/ghostty".source = ../config/ghostty;
+  home.file.".config/zsh".source = ../config/zsh;
+  home.file.".config/lvim".source = ../config/lvim;
+  home.file.".config/yabai".source = ../config/yabai;
+  home.file.".config/skhd".source = ../config/skhd;
+  home.file.".config/borders".source = ../config/borders;
+  home.file.".config/btop".source = ../config/btop;
+  home.file.".config/starship".source = ../config/starship;
+  home.file.".config/fastfetch".source = ../config/fastfetch;
 
   # macOS Launch Agents for automatic startup
   # Note: Launch agent disabled due to permission issues - using zsh auto-start instead

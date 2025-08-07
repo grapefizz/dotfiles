@@ -2,7 +2,7 @@
 {
   stylix = {
     enable = true;
-    image = "./config/wallpapers/voxel-city.jpg";
+    image = "../config/wallpapers/voxel-city.jpg";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     fonts = {
       monospace = {
