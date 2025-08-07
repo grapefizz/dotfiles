@@ -299,6 +299,7 @@
       "zerotier-one"
       "raycast"
       "ghostty"
+      "vesktop"
       # brew list --cask | awk '{print "      \"" $1 "\""}' | pbcopy
     ];
   };
