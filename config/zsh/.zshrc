@@ -45,57 +45,74 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 # Using typeset -U to ensure unique entries and avoid duplicates
 typeset -U path
 path=(
-  "/Users/Ari/lavat"
+  "$HOME/lavat"
   "$PNPM_HOME"
   "$HOME/.local/bin"
   "$BUN_INSTALL/bin"
-  "/Users/Ari/.spicetify"
-  "/Users/Ari/.local/bin/lvim"
-  "/Users/Ari/.lmstudio/bin"
+  "$HOME/.spicetify"
+  "$HOME/.local/bin/lvim"
+  "$HOME/.lmstudio/bin"
   $path  # Preserve existing PATH from Home Manager
 )
 
 # ============================================================================
-# TOOL INITIALIZATION
+# TOOL INITIALIZATION - OPTIMIZED FOR SPEED
 # ============================================================================
 
-# Initialize tools - avoiding duplicates and using lazy loading where possible
+# Initialize tools with lazy loading and caching
 
-# Pyenv initialization (only if pyenv exists)
+# Pyenv initialization (cached and lazy)
 if command -v pyenv >/dev/null 2>&1; then
-  eval "$(pyenv init --path)"
-fi
-
-# Starship prompt (check for both system and nix versions, init once)
-if command -v starship >/dev/null 2>&1; then
-  eval "$(starship init zsh)"
-fi
-
-# Zoxide initialization (check for both system and nix versions, init once)  
-if command -v zoxide >/dev/null 2>&1; then
-  eval "$(zoxide init zsh)"
-fi
-
-# Auto-start sketchybar if not running (only in interactive shells)
-# Moved to background to not block shell startup
-if [[ $- == *i* ]] && command -v sketchybar >/dev/null 2>&1; then
-  if ! pgrep -x "sketchybar" > /dev/null 2>&1; then
-    (sketchybar > /dev/null 2>&1 &) &!
+  # Cache pyenv initialization to speed up subsequent loads
+  if [[ ! -f "$HOME/.cache/pyenv_init" ]] || [[ "$HOME/.pyenv/bin/pyenv" -nt "$HOME/.cache/pyenv_init" ]]; then
+    mkdir -p "$HOME/.cache"
+    pyenv init --path > "$HOME/.cache/pyenv_init"
   fi
+  source "$HOME/.cache/pyenv_init"
+fi
+
+# Starship prompt (lazy load)
+if command -v starship >/dev/null 2>&1; then
+  if [[ ! -f "$HOME/.cache/starship_init.zsh" ]] || [[ $(command -v starship) -nt "$HOME/.cache/starship_init.zsh" ]]; then
+    mkdir -p "$HOME/.cache"
+    starship init zsh > "$HOME/.cache/starship_init.zsh"
+  fi
+  source "$HOME/.cache/starship_init.zsh"
+fi
+
+# Zoxide initialization (lazy load)
+if command -v zoxide >/dev/null 2>&1; then
+  if [[ ! -f "$HOME/.cache/zoxide_init.zsh" ]] || [[ $(command -v zoxide) -nt "$HOME/.cache/zoxide_init.zsh" ]]; then
+    mkdir -p "$HOME/.cache"
+    zoxide init zsh > "$HOME/.cache/zoxide_init.zsh"
+  fi
+  source "$HOME/.cache/zoxide_init.zsh"
+fi
+
+# Auto-start sketchybar (completely async, no blocking)
+if [[ $- == *i* ]] && command -v sketchybar >/dev/null 2>&1; then
+  # Use a background job that doesn't block shell startup
+  {
+    if ! pgrep -x "sketchybar" > /dev/null 2>&1; then
+      sketchybar > /dev/null 2>&1 &
+    fi
+  } &!
 fi
 
 
-# Bun completions (lazy load to improve startup time)
+# Bun completions (truly lazy load - only when bun command is used)
 if [ -s "/Users/Ari/.bun/_bun" ]; then
-  # Only load bun completions when actually needed
-  autoload -Uz add-zsh-hook
-  _load_bun_completions() {
-    if command -v bun >/dev/null 2>&1; then
+  # Create a wrapper function that loads completions on first use
+  bun() {
+    # Load completions only once when bun is first called
+    if [[ -s "/Users/Ari/.bun/_bun" ]]; then
       source "/Users/Ari/.bun/_bun"
     fi
-    add-zsh-hook -d precmd _load_bun_completions
+    # Replace this function with the real bun command
+    unfunction bun
+    # Call the real bun with all arguments
+    command bun "$@"
   }
-  add-zsh-hook precmd _load_bun_completions
 fi
 
 # ============================================================================
