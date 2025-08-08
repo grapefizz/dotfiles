@@ -12,7 +12,6 @@
     brews = [
       "abseil"
       "aom"
-      "apple-music-discord-rpc"
       "appstream"
       "aria2"
       "aribb24"
