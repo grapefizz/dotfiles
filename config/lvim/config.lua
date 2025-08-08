@@ -27,6 +27,22 @@ require('cord').setup {
   idle = {
     enabled = false
   },
+  hooks = {
+    post_activity = function(opts, activity)
+      local version = vim.version()
+      activity.assets.small_text = string.format('Neovim version %s.%s', version.minor, version.patch)
+    end
+  },
+  buttons = {
+    {
+      label = function(opts)
+       return opts.repo_url and 'View Repository'
+      end,
+      url = function(opts)
+        return opts.repo_url
+      end
+    }
+  }
   
 }
 
