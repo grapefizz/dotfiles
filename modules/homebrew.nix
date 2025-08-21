@@ -7,6 +7,8 @@
     # autoMigrate = true;
 
     taps = [
+    "koekeishiya/formulae"
+    "FelixKratz/formulae"
       
     ];
     brews = [
@@ -280,6 +282,11 @@
       "zsh-syntax-highlighting"
       "zstd"
       "fastfetch"
+      "gemini-cli"
+      "yabai"
+      "sketchybar"
+      "skhd"
+      "borders"
       # brew list | awk '{print "      \"" $1 "\""}' | pbcopy
     ];
     casks = [

@@ -77,7 +77,7 @@
     loginwindow.GuestEnabled = false;
   };
 
-  # Fonts (updated syntax)
+  # Fonts
   fonts.packages = with pkgs; [
     jetbrains-mono
     nerd-fonts.jetbrains-mono

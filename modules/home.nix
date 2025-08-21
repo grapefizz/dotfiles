@@ -104,12 +104,6 @@
     cowsay
     lolcat
     
-    # Window management (macOS)
-    sketchybar
-    yabai
-    skhd
-    jankyborders
-    
     # Git tools
     lazygit
 

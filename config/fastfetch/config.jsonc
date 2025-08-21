@@ -11,19 +11,35 @@
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
-    	"source": "/Users/Ari/dev/dots/modules/config/wallpapers/nix.png",
-    	"type": "kitty",
+    	"source": "~/dev/dots/config/fastfetch/logo.txt",
+    	"type": "auto",
     	"height": 14,
     	"padding": {
     		"top": 2
-    	}
+    	},
+        "color": {
+            "1": "#89b4fa",   // Blue
+            "2": "#b4befe",   // Lavender
+            "3": "#cba6f7",   // Mauve
+            "4": "#a6e3a1",   // Green (for accent)
+            "5": "#f5c2e7",   // Pink (for accent)
+            "6": "#f38ba8",   // Red (for accent)
+            "7": "#74c7ec",   // Sapphire (blue accent)
+            "8": "#6c7086",   // Overlay0 (dark gray for grayed-out text)
+            "9": "#f5e0dc"    // Rosewater (light accent)
+        }
     },
+
     "display": {
         "separator": " "
     },
     "modules": [
 	"break",
 	"break",
+  "break",
+  "break",
+  "break",
+  "break",
 	{
             "type": "custom",
             "format": "\u001b[35mAri's MacBook",
